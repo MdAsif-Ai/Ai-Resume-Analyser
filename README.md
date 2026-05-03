@@ -6,7 +6,7 @@
 # 🚀 Resumind AI
 
 <p align="center">
-  <a href="https://puter.com/app/resumer-3">
+  <a href="https://ai-resume-analyser-five-nu.vercel.app/">
     <img src="https://img.shields.io/badge/🔥%20Try%20Live%20Demo-Now-blue?style=for-the-badge&logo=vercel" />
   </a>
 </p>
