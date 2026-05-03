@@ -3,23 +3,20 @@
 > **Track Your Applications & Resume Ratings — Smarter.**  
 > Upload your resume, get an instant ATS score, and receive AI-driven improvement tips tailored to your dream job.
 
-
-
 # 🚀 Resumind AI
 
 <p align="center">
-  <a href="https://your-demo-link.com">
+  <a href="https://puter.com/app/resumer-3">
     <img src="https://img.shields.io/badge/🔥%20Try%20Live%20Demo-Now-blue?style=for-the-badge&logo=vercel" />
   </a>
 </p>
-
 
 ---
 
 ## 📸 Screenshots
 
-| Home Page | Upload Page |
-|---|---|
+| Home Page                            | Upload Page                            |
+| ------------------------------------ | -------------------------------------- |
 | ![Home](public/images/resume_01.png) | ![Upload](public/images/resume_02.png) |
 
 > **Home** — View all tracked applications and resume ratings at a glance.  
@@ -64,36 +61,36 @@ The app is built on [Remix](https://remix.run/) (React-based SSR framework) with
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 🔐 **Authentication** | Secure user login/logout with redirect-based auth guard |
-| 📄 **Resume Upload** | Upload PDF resumes up to 20 MB via click or drag-and-drop |
-| 🤖 **AI Feedback** | ATS score + detailed improvement suggestions powered by AI |
-| 🖼️ **PDF Preview** | First page of uploaded PDF auto-converted to image for card preview |
-| 📁 **Resume Gallery** | Dashboard showing all uploaded resumes with scores and metadata |
-| 💾 **Persistent Storage** | All resumes, images, and feedback stored via custom fs/kv abstraction |
-| 📊 **Score Visualization** | Circular score gauge and color-coded score badges |
-| 🔍 **Detailed View** | Full feedback breakdown per resume including ATS analysis and suggestions |
-| 🗑️ **Data Management** | Wipe route for clearing stored data during development/testing |
-| 📱 **Responsive UI** | Mobile-friendly layout with Tailwind CSS utility classes |
+| Feature                    | Description                                                               |
+| -------------------------- | ------------------------------------------------------------------------- |
+| 🔐 **Authentication**      | Secure user login/logout with redirect-based auth guard                   |
+| 📄 **Resume Upload**       | Upload PDF resumes up to 20 MB via click or drag-and-drop                 |
+| 🤖 **AI Feedback**         | ATS score + detailed improvement suggestions powered by AI                |
+| 🖼️ **PDF Preview**         | First page of uploaded PDF auto-converted to image for card preview       |
+| 📁 **Resume Gallery**      | Dashboard showing all uploaded resumes with scores and metadata           |
+| 💾 **Persistent Storage**  | All resumes, images, and feedback stored via custom fs/kv abstraction     |
+| 📊 **Score Visualization** | Circular score gauge and color-coded score badges                         |
+| 🔍 **Detailed View**       | Full feedback breakdown per resume including ATS analysis and suggestions |
+| 🗑️ **Data Management**     | Wipe route for clearing stored data during development/testing            |
+| 📱 **Responsive UI**       | Mobile-friendly layout with Tailwind CSS utility classes                  |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology | Purpose |
-|---|---|---|
-| **Frontend Framework** | [Remix](https://remix.run/) (v2) | SSR routing, meta tags, data loading |
-| **UI Library** | [React](https://react.dev/) | Component-based UI and state management |
-| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | Utility-first CSS framework |
-| **PDF Processing** | [pdfjs-dist](https://mozilla.github.io/pdf.js/) | Client-side PDF parsing and canvas rendering |
-| **State & Services** | Custom `usePuterStore` hook | Auth, file system, key-value store, AI access |
-| **AI Service** | Custom `ai.feedback` integration | Resume analysis and scoring |
-| **File Storage** | Custom `fs` abstraction | File upload and retrieval |
-| **Key-Value Store** | Custom `kv` abstraction | Structured resume data persistence |
-| **Build Tool** | [Vite](https://vitejs.dev/) | Fast HMR dev server and optimized builds |
-| **Type System** | [TypeScript](https://www.typescriptlang.org/) | Static typing across all source files |
-| **Containerization** | [Docker](https://www.docker.com/) | Consistent deployment environment |
+| Layer                  | Technology                                      | Purpose                                       |
+| ---------------------- | ----------------------------------------------- | --------------------------------------------- |
+| **Frontend Framework** | [Remix](https://remix.run/) (v2)                | SSR routing, meta tags, data loading          |
+| **UI Library**         | [React](https://react.dev/)                     | Component-based UI and state management       |
+| **Styling**            | [Tailwind CSS](https://tailwindcss.com/)        | Utility-first CSS framework                   |
+| **PDF Processing**     | [pdfjs-dist](https://mozilla.github.io/pdf.js/) | Client-side PDF parsing and canvas rendering  |
+| **State & Services**   | Custom `usePuterStore` hook                     | Auth, file system, key-value store, AI access |
+| **AI Service**         | Custom `ai.feedback` integration                | Resume analysis and scoring                   |
+| **File Storage**       | Custom `fs` abstraction                         | File upload and retrieval                     |
+| **Key-Value Store**    | Custom `kv` abstraction                         | Structured resume data persistence            |
+| **Build Tool**         | [Vite](https://vitejs.dev/)                     | Fast HMR dev server and optimized builds      |
+| **Type System**        | [TypeScript](https://www.typescriptlang.org/)   | Static typing across all source files         |
+| **Containerization**   | [Docker](https://www.docker.com/)               | Consistent deployment environment             |
 
 ---
 
@@ -307,52 +304,63 @@ Render full feedback:
 ## 🧩 Component Reference
 
 ### `<Navbar />`
+
 Top navigation bar displaying the **RESUMER** logo and the **Upload Resume** button. Present on all authenticated pages.
 
 ### `<ResumeCard />`
+
 Displays a single resume entry in the gallery grid.
 
-| Prop | Type | Description |
-|---|---|---|
+| Prop     | Type           | Description                           |
+| -------- | -------------- | ------------------------------------- |
 | `resume` | `ResumeRecord` | Full resume data object from kv store |
 
 Renders: preview image, company name, job title, and `<ScoreCircle>`.
 
 ### `<ScoreCircle />`
+
 Circular SVG-based score indicator showing the ATS score percentage visually.
 
-| Prop | Type | Description |
-|---|---|---|
+| Prop    | Type     | Description       |
+| ------- | -------- | ----------------- |
 | `score` | `number` | ATS score (0–100) |
 
 ### `<ScoreGauge />`
+
 Arc-shaped gauge with needle indicator for the resume detail view.
 
 ### `<ScoreBadge />`
+
 Color-coded badge for score categories:
+
 - 🟢 Green — High score (≥ 80)
 - 🟡 Yellow — Medium score (50–79)
 - 🔴 Red — Low score (< 50)
 
 ### `<FileUploader />`
+
 Drag-and-drop and click-to-upload component for PDF files.
 
-| Prop | Type | Description |
-|---|---|---|
-| `onFileSelect` | `(file: File) => void` | Callback when a file is chosen |
-| `accept` | `string` | MIME types (defaults to `application/pdf`) |
-| `maxSize` | `number` | Max file size in bytes (default 20 MB) |
+| Prop           | Type                   | Description                                |
+| -------------- | ---------------------- | ------------------------------------------ |
+| `onFileSelect` | `(file: File) => void` | Callback when a file is chosen             |
+| `accept`       | `string`               | MIME types (defaults to `application/pdf`) |
+| `maxSize`      | `number`               | Max file size in bytes (default 20 MB)     |
 
 ### `<ATS />`
+
 Renders the ATS score section with category breakdown icons (`ats-good.svg`, `ats-warning.svg`, `ats-bad.svg`).
 
 ### `<Summary />`
+
 Displays the top-level AI narrative feedback for the resume.
 
 ### `<Details />`
+
 Accordion-based section showing granular improvement tips returned by the AI.
 
 ### `<Accordion />`
+
 Generic collapsible section used by `<Details>` for expandable feedback categories.
 
 ---
@@ -365,23 +373,23 @@ The AI feedback pipeline is invoked via the `ai.feedback()` method from `usePute
 
 ```typescript
 ai.feedback({
-  resumeText: string,       // Extracted text content of the uploaded PDF
-  jobTitle: string,         // Job title entered by the user
-  companyName: string,      // Company name entered by the user
-  jobDescription: string,   // Job description entered by the user
-})
+  resumeText: string, // Extracted text content of the uploaded PDF
+  jobTitle: string, // Job title entered by the user
+  companyName: string, // Company name entered by the user
+  jobDescription: string, // Job description entered by the user
+});
 ```
 
 ### Output (parsed and stored)
 
 ```typescript
 interface AIFeedback {
-  atsScore: number;               // 0–100 overall ATS compatibility score
-  summary: string;                // High-level resume assessment
-  strengths: string[];            // List of resume strengths
-  improvements: string[];         // Specific improvement suggestions
-  keywordMatches: string[];       // Keywords found matching job description
-  missingKeywords: string[];      // Important keywords absent from resume
+  atsScore: number; // 0–100 overall ATS compatibility score
+  summary: string; // High-level resume assessment
+  strengths: string[]; // List of resume strengths
+  improvements: string[]; // Specific improvement suggestions
+  keywordMatches: string[]; // Keywords found matching job description
+  missingKeywords: string[]; // Important keywords absent from resume
 }
 ```
 
@@ -451,6 +459,7 @@ fs.read(path: string): Promise<Blob>
 ```
 
 Used to store:
+
 - Raw uploaded PDF files
 - Generated PNG preview images
 
@@ -490,13 +499,13 @@ resume:<uuid>       ← Individual resume record
 
 Resumer uses **Remix file-based routing**. All routes live in `app/routes/`.
 
-| Route | File | Description |
-|---|---|---|
-| `/` | `home.tsx` | Resume gallery dashboard |
-| `/auth` | `auth.tsx` | Login page (redirects to `?next` after login) |
-| `/upload` | `upload.tsx` | Upload form and AI analysis trigger |
-| `/resume` | `resume.tsx` | Individual resume detail + full feedback |
-| `/wipe` | `wipe.tsx` | Dev utility — wipes all kv/fs data |
+| Route     | File         | Description                                   |
+| --------- | ------------ | --------------------------------------------- |
+| `/`       | `home.tsx`   | Resume gallery dashboard                      |
+| `/auth`   | `auth.tsx`   | Login page (redirects to `?next` after login) |
+| `/upload` | `upload.tsx` | Upload form and AI analysis trigger           |
+| `/resume` | `resume.tsx` | Individual resume detail + full feedback      |
+| `/wipe`   | `wipe.tsx`   | Dev utility — wipes all kv/fs data            |
 
 ### Auth Guard Pattern
 
@@ -517,15 +526,15 @@ useEffect(() => {
 
 ## ⚠️ Error Handling
 
-| Scenario | Handling Strategy |
-|---|---|
-| PDF.js worker load failure | Try/catch in `pdf2image.ts`, error surfaced to upload form |
-| PDF conversion error | Error state shown in upload UI, form remains interactable |
-| File upload failure (`fs.upload`) | Error state displayed, upload can be retried |
-| Image upload failure | Non-blocking; resume still saved without preview |
-| AI feedback failure | Error state displayed; user can re-submit |
-| Auth failure | Redirect to `/auth` with `next` param |
-| KV store failure | Console error logged, UI shows fallback state |
+| Scenario                          | Handling Strategy                                          |
+| --------------------------------- | ---------------------------------------------------------- |
+| PDF.js worker load failure        | Try/catch in `pdf2image.ts`, error surfaced to upload form |
+| PDF conversion error              | Error state shown in upload UI, form remains interactable  |
+| File upload failure (`fs.upload`) | Error state displayed, upload can be retried               |
+| Image upload failure              | Non-blocking; resume still saved without preview           |
+| AI feedback failure               | Error state displayed; user can re-submit                  |
+| Auth failure                      | Redirect to `/auth` with `next` param                      |
+| KV store failure                  | Console error logged, UI shows fallback state              |
 
 ---
 
@@ -593,8 +602,6 @@ style:    Formatting/styling only
 docs:     Documentation updates
 chore:    Build/tooling changes
 ```
-
-
 
 ---
 
